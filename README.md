@@ -1,4 +1,4 @@
-# pwelch-workstation
+# robbernabe-workstation
 
 Resources for setting up workstation and dotfiles
 
