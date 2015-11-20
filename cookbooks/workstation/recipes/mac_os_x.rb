@@ -24,18 +24,23 @@ node[:workstation][:misc].each do |pkg|
   homebrew_package pkg
 end
 
-homebrew_tap 'homebrew/games'
-
 node[:workstation][:games].each do |pkg|
   homebrew_package pkg
 end
 
+homebrew_tap 'homebrew/games'
+homebrew_tap 'caskroom/versions'
+homebrew_tap 'caskroom/fonts'
 homebrew_tap 'nviennot/tmate'
 
 homebrew_package 'tmate'
 
 if node[:workstation][:install_casks]
   node[:workstation][:casks].each do |cask|
+    homebrew_cask cask
+  end
+
+  node[:workstation][:fonts].each do |cask|
     homebrew_cask cask
   end
 end
