@@ -4,6 +4,14 @@
 
 include_recipe 'homebrew'
 
+homebrew_tap 'caskroom/cask'
+homebrew_tap 'caskroom/versions'
+homebrew_tap 'caskroom/fonts'
+homebrew_tap 'homebrew/games'
+homebrew_tap 'nviennot/tmate'
+
+homebrew_package 'tmate'
+
 node[:workstation][:tools].each do |pkg|
   homebrew_package pkg
 end
@@ -27,13 +35,6 @@ end
 node[:workstation][:games].each do |pkg|
   homebrew_package pkg
 end
-
-homebrew_tap 'homebrew/games'
-homebrew_tap 'caskroom/versions'
-homebrew_tap 'caskroom/fonts'
-homebrew_tap 'nviennot/tmate'
-
-homebrew_package 'tmate'
 
 if node[:workstation][:install_casks]
   node[:workstation][:casks].each do |cask|
