@@ -15,6 +15,7 @@ default[:workstation][:tools]     = %w(
   awscli curl git the_silver_searcher wget htop-osx httpie iperf jq jrnl
   mtr openssl siege sl sqlite ssh-copy-id tmux tree watch youtube-dl
   pass reattach-to-user-namespace httping ctags cmake sysdig vim
+  coreutils
 )
 default[:workstation][:casks]     = %w(
   alfred cloak google-chrome dropbox gpgtools spectacle 1password
