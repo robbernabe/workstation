@@ -12,10 +12,10 @@ default[:workstation][:fonts]     = %w(font-inconsolata font-ubuntu-mono-powerli
 default[:workstation][:misc]      = %w(ghostscript imagemagick pidof)
 default[:workstation][:games]     = %w(vitetris)
 default[:workstation][:tools]     = %w(
-  awscli curl git the_silver_searcher wget htop-osx httpie iperf jq jrnl
+  awscli curl git mercurial the_silver_searcher wget htop-osx httpie iperf
   mtr openssl siege sl sqlite ssh-copy-id tmux tree watch youtube-dl
   pass reattach-to-user-namespace httping ctags cmake sysdig vim
-  coreutils
+  coreutils jq jrnl
 )
 default[:workstation][:casks]     = %w(
   alfred cloak google-chrome dropbox gpgtools spectacle 1password
