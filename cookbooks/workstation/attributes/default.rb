@@ -15,12 +15,12 @@ default[:workstation][:tools]     = %w(
   awscli curl git mercurial the_silver_searcher wget htop-osx httpie iperf
   mtr openssl siege sl sqlite ssh-copy-id tmux tree watch youtube-dl
   pass reattach-to-user-namespace httping ctags cmake sysdig vim
-  coreutils jq jrnl
+  coreutils jq jrnl postgresql
 )
 default[:workstation][:casks]     = %w(
   alfred cloak google-chrome dropbox gpgtools spectacle 1password
   handbrake iterm2-nightly launchrocket licecap macdown slack
   mysqlworkbench screenhero skype xquartz vlc wireshark viscosity
   backblaze istat-menus sequel-pro dockertoolbox virtualbox
-  vagrant vmware-fusion evernote flux postgres
+  vagrant vmware-fusion evernote flux
 )
