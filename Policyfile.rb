@@ -11,7 +11,8 @@ default_source :community
 ## Run List
 run_list(
   'pantry',
-  'workstation::mac_os_x'
+  'workstation::mac_os_x',
+  'workstation::settings'
 )
 
 # Add `cookbook` entries for cookbooks that are not found on
