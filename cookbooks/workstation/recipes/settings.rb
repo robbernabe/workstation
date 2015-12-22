@@ -29,6 +29,25 @@ execute 'Safari: Re-enable backspace/delete to go back in Safari' do
 end
 
 ###############################################################################
+# TextEdit
+###############################################################################
+
+execute 'TextEdit: Use plain text mode for new TextEdit documents' do
+  command 'defaults write com.apple.TextEdit RichText -int 0'
+  user    user
+end
+
+execute 'TextEdit: Disable smart quotes' do
+  command 'defaults write com.apple.TextEdit SmartQuotes -bool false'
+  user    user
+end
+
+execute 'TextEdit: Disable smart dashes' do
+  command 'defaults write com.apple.TextEdit SmartDashes -bool false'
+  user    user
+end
+
+###############################################################################
 # Mail                                                                        #
 ###############################################################################
 
@@ -49,6 +68,11 @@ end
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
+
+execute 'Finder: Show status bar' do
+  command 'defaults write com.apple.finder ShowStatusBar -bool true'
+  user    user
+end
 
 execute 'Finder: Use list view in all Finder windows by default' do
   command 'defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"'
@@ -162,12 +186,36 @@ execute 'Mouse/Trackpad: Disable “natural” scrolling' do
 end
 
 execute 'Mouse/Trackpad: Disable mouse pointer "shake to locate"' do
-  command 'defaults write ~/Library/Preferences/.GlobalPreferences CGDisableCursorLocationMagnification -bool YES'
+  command 'defaults write ~/Library/Preferences/.GlobalPreferences.plist CGDisableCursorLocationMagnification -bool YES'
   user   user
 end
 
 ###############################################################################
-# Dock, Dashboard, and hot corners                                            #
+# Keyboard
+###############################################################################
+
+execute 'Keyboard: Enable full keyboard controls' do
+  command 'defaults write ~/Library/Preferences/.GlobalPreferences.plist AppleKeyboardUIMode -int 3'
+  user    user
+end
+
+execute 'Keyboard: Set a shorter delay until key repeat' do
+  command 'defaults write ~/Library/Preferences/.GlobalPreferences.plist InitialKeyRepeat -int 12'
+  user    user
+end
+
+execute 'Keyboard: Set a blazingly fast keyboard repeat rate' do
+  command 'defaults write ~/Library/Preferences/.GlobalPreferences.plist KeyRepeat -int 0'
+  user    user
+end
+
+execute 'Keyboard: Enable character repeat on keydown' do
+  command 'defaults write ~/Library/Preferences/.GlobalPreferences.plist ApplePressAndHoldEnabled -bool false'
+  user    user
+end
+
+###############################################################################
+# Dock, Dashboard, and Hot Corners                                            #
 ###############################################################################
 
 execute 'Restart Dock' do
@@ -189,7 +237,17 @@ end
 # 11: Launchpad
 # 12: Notification Center
 
-# Note: Be sure to run `killall Dock` for these settings to take effect
+execute 'Dock: Set to right' do
+  command 'defaults write com.apple.Dock orientation -string "right"'
+  user    user
+  notifies :run, 'execute[Restart Dock]'
+end
+
+execute 'Dock: Set autohide' do
+  command 'defaults write com.apple.Dock autohide -bool TRUE'
+  user    user
+  notifies :run, 'execute[Restart Dock]'
+end
 
 execute 'Hot Corners: Bottom left screen corner → Start screen saver' do
   command 'defaults write com.apple.dock wvous-bl-corner -int 5 && defaults write com.apple.dock wvous-bl-modifier -int 0'

@@ -18,7 +18,7 @@ default[:workstation][:tools]     = %w(
   coreutils jq jrnl postgresql postgis redis rabbitmq
 )
 default[:workstation][:casks]     = %w(
-  alfred cloak google-chrome dropbox gpgtools spectacle 1password
+  alfred google-chrome dropbox gpgtools spectacle 1password
   handbrake iterm2-nightly launchrocket licecap macdown slack
   mysqlworkbench screenhero skype xquartz vlc wireshark viscosity
   backblaze istat-menus sequel-pro dockertoolbox virtualbox
