@@ -3,6 +3,7 @@
 # Attribute: default
 #
 
+default[:workstation][:markedpub]     = true
 default[:workstation][:install_casks] = true
 
 default[:workstation][:languages] = %w(go python node)
@@ -18,7 +19,7 @@ default[:workstation][:tools]     = %w(
   coreutils jq jrnl postgresql postgis redis rabbitmq
 )
 default[:workstation][:casks]     = %w(
-  alfred google-chrome dropbox gpgtools spectacle 1password
+  alfred google-chrome firefox dropbox gpgtools spectacle 1password
   handbrake iterm2-nightly launchrocket licecap macdown slack
   mysqlworkbench screenhero skype xquartz vlc wireshark viscosity
   backblaze istat-menus sequel-pro dockertoolbox virtualbox

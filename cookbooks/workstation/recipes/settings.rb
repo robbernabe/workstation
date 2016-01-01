@@ -29,6 +29,15 @@ execute 'Safari: Re-enable backspace/delete to go back in Safari' do
 end
 
 ###############################################################################
+# OS X Terminal
+###############################################################################
+
+execute 'Terminal.app: Hide those annoying marks in the terminal window' do
+  command 'defaults write com.apple.Terminal AutoMarkPromptLines -int 0'
+  user    user
+end
+
+###############################################################################
 # TextEdit
 ###############################################################################
 
