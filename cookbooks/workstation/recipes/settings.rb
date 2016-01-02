@@ -78,72 +78,214 @@ end
 # Finder                                                                      #
 ###############################################################################
 
+execute 'Restart Finder' do
+  command 'killall Finder'
+  user    user
+  action  :nothing
+end
+
 execute 'Finder: Show status bar' do
   command 'defaults write com.apple.finder ShowStatusBar -bool true'
   user    user
+  notifies :run, 'execute[Restart Finder]'
 end
 
 execute 'Finder: Use list view in all Finder windows by default' do
   command 'defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"'
   user    user
+  notifies :run, 'execute[Restart Finder]'
 end
 
 execute 'Finder: Show icons for external hard drives on the desktop' do
   command 'defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true'
   user    user
+  notifies :run, 'execute[Restart Finder]'
 end
 
 execute 'Finder: Show icons for hard drives on the desktop' do
   command 'defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true'
   user    user
+  notifies :run, 'execute[Restart Finder]'
 end
+
 execute 'Finder: Show icons for servers on the desktop' do
   command 'defaults write com.apple.finder ShowMountedServersOnDesktop -bool true'
   user    user
+  notifies :run, 'execute[Restart Finder]'
 end
+
 execute 'Finder: Show icons for removable media on the desktop' do
   command 'defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true'
   user    user
+  notifies :run, 'execute[Restart Finder]'
 end
 
 execute 'Finder: Show path in Title Bar' do
   command 'defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES'
   user    user
+  notifies :run, 'execute[Restart Finder]'
 end
 
 execute 'Finder: New Finder window shows $HOME' do
   command 'defaults write com.apple.finder NewWindowTarget -string "PfHm"'
   user    user
+  notifies :run, 'execute[Restart Finder]'
 end
 
 execute 'Finder: Show the ~/Library folder' do
   command 'chflags nohidden ~/Library'
   user    user
+  notifies :run, 'execute[Restart Finder]'
 end
 
 execute 'Finder: Show the path bar' do
   command 'defaults write com.apple.finder ShowPathBar -boolean true'
   user    user
+  notifies :run, 'execute[Restart Finder]'
 end
 
 execute 'Finder: Set sidebar icon size to small' do
   command 'defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1'
   user    user
+  notifies :run, 'execute[Restart Finder]'
 end
 
 execute 'Finder: Scrollbar fix for finder and Terminal' do
   command 'defaults write -g AppleShowScrollBars -string WhenScrolling'
   user    user
+  notifies :run, 'execute[Restart Finder]'
 end
 
 execute 'Finder: Expand save panel by default' do
   command 'defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true'
   user    user
+  notifies :run, 'execute[Restart Finder]'
 end
 
 execute 'Finder: Expand print panel by default' do
   command 'defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true'
   user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Show item info near icons on the desktop and in other icon views 1' do
+  command '/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Show item info near icons on the desktop and in other icon views 2' do
+  command '/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Show item info near icons on the desktop and in other icon views 3' do
+  command '/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Show item info to the right of the icons on the desktop' do
+  command '/usr/libexec/PlistBuddy -c "Set DesktopViewSettings:IconViewSettings:labelOnBottom false" ~/Library/Preferences/com.apple.finder.plist'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Enable snap-to-grid for icons on the desktop and in other icon views 1' do
+  command '/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy kind" ~/Library/Preferences/com.apple.finder.plist'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Enable snap-to-grid for icons on the desktop and in other icon views 2' do
+  command '/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy kind" ~/Library/Preferences/com.apple.finder.plist'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Enable snap-to-grid for icons on the desktop and in other icon views 3' do
+  command '/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy kind" ~/Library/Preferences/com.apple.finder.plist'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Increase grid spacing for icons on the desktop and in other icon views 1' do
+  command '/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Increase grid spacing for icons on the desktop and in other icon views 2' do
+  command '/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Increase grid spacing for icons on the desktop and in other icon views 3' do
+  command '/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Set the size of icons on the desktop and in other icon views 1' do
+  command '/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 16" ~/Library/Preferences/com.apple.finder.plist'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Set the size of icons on the desktop and in other icon views 2' do
+  command '/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 16" ~/Library/Preferences/com.apple.finder.plist'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Set the size of icons on the desktop and in other icon views 3' do
+  command '/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 16" ~/Library/Preferences/com.apple.finder.plist'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Set the size of texzt on the desktop and in other icon views 1' do
+  command '/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:textSize 11" ~/Library/Preferences/com.apple.finder.plist'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Set the size of text on the desktop and in other icon views 2' do
+  command '/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:textSize 11" ~/Library/Preferences/com.apple.finder.plist'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Set the size of text on the desktop and in other icon views 3' do
+  command '/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:textSize 11" ~/Library/Preferences/com.apple.finder.plist'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Show icons for external hard drives on the Desktop' do
+  command 'defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Show icons for hard drives on the Desktop' do
+  command 'defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Show icons for servers on the Desktop' do
+  command 'defaults write com.apple.finder ShowMountedServersOnDesktop -bool true'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
+end
+
+execute 'Finder: Show icons for removable media on the Desktop' do
+  command 'defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true'
+  user    user
+  notifies :run, 'execute[Restart Finder]'
 end
 
 ###############################################################################
