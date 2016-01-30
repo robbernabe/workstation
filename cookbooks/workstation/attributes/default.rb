@@ -20,7 +20,7 @@ default[:workstation][:tools]     = %w(
 )
 default[:workstation][:casks]     = %w(
   alfred google-chrome firefox dropbox gpgtools spectacle 1password
-  handbrake iterm2-nightly launchrocket licecap macdown slack
+  handbrake iterm2-nightly launchrocket licecap macdown macvim slack
   mysqlworkbench screenhero skype xquartz vlc wireshark viscosity
   backblaze istat-menus sequel-pro dockertoolbox virtualbox
   vagrant vmware-fusion evernote flux appcleaner insomniax
