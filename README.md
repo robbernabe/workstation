@@ -23,6 +23,6 @@ sudo ./bin/pantry -c
 
 ```
 chef update
-chef export --force zero-repo
-sudo chef-client -z
+sudo rm -rf zero-repo && chef export zero-repo
+cd zero-repo && sudo chef-client -z
 ```

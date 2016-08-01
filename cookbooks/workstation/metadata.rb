@@ -6,4 +6,4 @@ description      'Installs/Configures workstation'
 long_description 'Installs/Configures workstation'
 version          '0.1.0'
 
-depends 'homebrew', '~> 1.12'
+depends 'homebrew', '~> 2.1.0'

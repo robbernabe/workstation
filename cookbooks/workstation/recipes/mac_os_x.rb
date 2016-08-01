@@ -8,9 +8,6 @@ homebrew_tap 'caskroom/cask'
 homebrew_tap 'caskroom/versions'
 homebrew_tap 'caskroom/fonts'
 homebrew_tap 'homebrew/games'
-homebrew_tap 'nviennot/tmate'
-
-homebrew_package 'tmate'
 
 node[:workstation][:tools].each do |pkg|
   homebrew_package pkg
@@ -18,6 +15,10 @@ end
 
 node[:workstation][:languages].each do |pkg|
   homebrew_package pkg
+end
+
+node[:workstation][:gems].each do |pkg|
+  gem_package pkg
 end
 
 node[:workstation][:devops].each do |pkg|

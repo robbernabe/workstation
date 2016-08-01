@@ -19,3 +19,17 @@ if node[:workstation][:markedpub]
     user    user
   end
 end
+
+if node[:workstation][:hermes]
+  # If the LSUIElement exists, it will exit with return code 1
+  execute 'Hermes: Remove from app switcher 0' do
+    command '/usr/libexec/PlistBuddy /Applications/Hermes.app/Contents/Info.plist -c "Add LSUIElement String"'
+    user    user
+    returns [0, 1]
+  end
+
+  execute 'Hermes: Remove from app switcher 1' do
+    command '/usr/libexec/PlistBuddy /Applications/Hermes.app/Contents/Info.plist -c "Set LSUIElement 1"'
+    user    user
+  end
+end
