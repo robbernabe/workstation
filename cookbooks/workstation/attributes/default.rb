@@ -18,7 +18,7 @@ default[:workstation][:tools]     = %w(
   awscli curl git mercurial the_silver_searcher wget htop-osx httpie iperf
   mtr openssl siege sl sqlite ssh-copy-id tmux tree watch youtube-dl
   pass reattach-to-user-namespace httping ctags cmake sysdig vim
-  coreutils jq jrnl postgresql postgis redis rabbitmq keybase tmate
+  coreutils jq jrnl postgresql postgis redis rabbitmq keybase tmate direnv
 )
 default[:workstation][:casks]     = %w(
   alfred google-chrome firefox dropbox gpgtools spectacle 1password
