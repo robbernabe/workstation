@@ -16,14 +16,14 @@ default[:workstation][:misc]      = %w(ghostscript imagemagick pidof)
 default[:workstation][:games]     = %w(vitetris)
 default[:workstation][:tools]     = %w(
   awscli curl git mercurial the_silver_searcher wget htop-osx httpie iperf
-  mtr openssl siege sl sqlite ssh-copy-id tmux tree watch youtube-dl
-  pass reattach-to-user-namespace httping ctags cmake sysdig vim
-  coreutils jq jrnl postgresql postgis redis rabbitmq keybase tmate direnv
+  mtr openssl siege sl sqlite ssh-copy-id tmux tree watch youtube-dl pyenv
+  pass reattach-to-user-namespace httping ctags cmake sysdig vim rbenv rbenv-gemset
+  coreutils jq jrnl postgresql postgis redis rabbitmq keybase tmate direnv fzf ranger
 )
 default[:workstation][:casks]     = %w(
   alfred google-chrome firefox dropbox gpgtools spectacle 1password
   handbrake iterm2-nightly launchrocket licecap macdown macvim slack
   mysqlworkbench screenhero skype xquartz vlc wireshark viscosity
   backblaze istat-menus sequel-pro dockertoolbox virtualbox
-  vagrant vmware-fusion evernote flux appcleaner insomniax hermes
+  vagrant vmware-fusion evernote appcleaner insomniax hermes
 )
