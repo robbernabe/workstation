@@ -25,5 +25,5 @@ default[:workstation][:casks]     = %w(
   handbrake iterm2-nightly launchrocket licecap macdown macvim slack
   mysqlworkbench screenhero skype xquartz vlc wireshark viscosity
   backblaze istat-menus sequel-pro dockertoolbox virtualbox
-  vagrant vmware-fusion evernote appcleaner insomniax hermes
+  vagrant vmware-fusion evernote appcleaner insomniax hermes keyboard-maestro
 )
